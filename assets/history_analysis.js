@@ -148,7 +148,7 @@ function update_images(){
     document.getElementById("image_8").src = img_dir+"/selected_prob_dist.png";
     document.getElementById("image_9").src = img_dir+"/selected_set_class_dist.png";
     
-    setTimeout(refresh_widths, 500);
+    setTimeout(refresh_widths, 1500);
     
     // console_log(img_dir);
     
