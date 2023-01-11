@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <title>History Analysis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- ** CSS Plugins Needed for the Project ** -->
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!--Favicon-->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+  <!-- Main Stylesheet -->
+  <link href="assets/style.css" rel="stylesheet" media="screen" />
+</head>
+
+<body>
+  <!-- header -->
+  <header class="shadow-bottom bg-white">
+    <nav class="navbar navbar-expand-md navbar-light">
+      <div  id="header" class="container">
+        <h3 id="header_text" class="text-primary header-text" href="index.html">History Analysis</h3>
+        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse text-center" id="navigation">
+          <a id="header_link" class="nav-link text-dark header-nav ml-auto" href="index.html">Home</a>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+  <!-- /header -->
+
+  <section class="section pb-0 pt-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 col-lg-2 align-self-start">
+          <h4 class="text-center">Dataset</h4>
+          <select id="dataset_selector" class="form-select" onChange="dataset_change();">
+            <!-- dataset_selection(this); -->
+            <!-- <option selected>Open this select menu</option> -->
+            <option value="dbpedia_14">DBpedia</option>
+            <option value="yahoo_answers_10">Yahoo Answers</option>
+          </select>
+        </div>
+        <div class="col-sm-4 col-lg-2 align-self-center">
+          <h4 class="text-center">Strategy</h4>
+          <select id="strategy_selector" class="form-select" onChange="strategy_change();">
+            <!-- <option selected>Open this select menu</option> -->
+            <option value="top_k">Top K</option>
+            <option value="pc_top_k">Per Class Top K</option>
+          </select>
+        </div>
+        <div class="col-sm-4 col-lg-2 align-self-center">
+          <h4 class="text-center">Strategy Value</h4>
+          <select id="strat_val_selector" class="form-select" onChange="refresh_data();">
+            <!-- <option selected>Select</option> -->
+            <option value="250">250</option>
+            <option value="500">500</option>
+          </select>
+        </div>
+        <div class="col-sm-4 col-lg-2 align-self-center">
+          <h4 class="text-center">Sampling</h4>
+          <select id="sampling_selector" class="form-select" onChange="refresh_data();">
+            <!-- <option selected>Open this select menu</option> -->
+            <option value="">Equal</option>
+            <option value="random_">Random</option>
+          </select>
+        </div>
+        <div class="col-sm-4 col-lg-2 align-self-center">
+          <h4 class="text-center">Labeled Set</h4>
+          <select id="labeled_selector" class="form-select" onChange="refresh_data();">
+            <!-- <option selected>Open this select menu</option> -->
+            <option value="7_35">Class: 7, Size: 35</option>
+            <option value="7_70">Class: 7, Size: 70</option>
+            <option value="7_140">Class: 7, Size: 140</option>
+            <option value="7_350">Class: 7, Size: 350</option>
+            <option value="7_1050">Class: 7, Size: 1050</option>
+          </select>
+        </div>
+        <div class="col-sm-4 col-lg-2 align-self-center">
+          <h4 class="text-center">Unlabeled Set</h4>
+          <select id="unlabeled_selector" class="form-select" onChange="refresh_data();">
+            <!-- <option selected>Open this select menu</option> -->
+            <option value="7_5250">Class: 7, Size: 5250</option>
+            <option value="7_10500">Class: 7, Size: 10500</option>
+            <option value="14_10500">Class: 14, Size: 10500</option>
+            <option value="14_21000">Class: 14, Size: 21000</option>
+          </select>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- images -->
+
+  <section class="section pb-0 pt-2">
+    <div  id="image_container" class="container">
+      <div class="row bg-white align-items-center">
+        <div class="col-sm-12 col-lg-6 image-col">
+          <img id="image_1" class="img-fluid" src="visuals\dbpedia_14\top_k\250_LC_7_UC_7_LS_35_US_5250/acc_plot.png" >
+        </div>
+        <div class="col-sm-12 col-lg-6 image-col">
+          <img id="image_2" class="img-fluid" src="visuals\dbpedia_14\top_k\250_LC_7_UC_7_LS_35_US_5250/cw_acc_plot.png">
+        </div>
+      </div>
+      <div class="row bg-white align-items-center">
+        <div class="col-sm-12 col-lg-6 image-col">
+          <img id="image_3" class="img-fluid" src="visuals\dbpedia_14\top_k\250_LC_7_UC_7_LS_35_US_5250/selection_plot.png" >
+        </div>
+        <div class="col-sm-12 col-lg-6 image-col">
+          <img id="image_4" class="img-fluid" src="visuals\dbpedia_14\top_k\250_LC_7_UC_7_LS_35_US_5250/cw_f1_plot.png">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section pb-5 pt-0">
+    <div  id="image_container" class="container">
+      <div class="row bg-white">
+        <div class="image-col2">
+          <img id="image_5" src="visuals\dbpedia_14\top_k\250_LC_7_UC_7_LS_35_US_5250/predicted_prob_dist.png" >
+        </div>
+        <div class="image-col2">
+          <img id="image_6" src="visuals\dbpedia_14\top_k\250_LC_7_UC_7_LS_35_US_5250/predicted_set_class_dist.png">
+        </div>
+        <div class="image-col2">
+          <img id="image_7" src="visuals\dbpedia_14\top_k\250_LC_7_UC_7_LS_35_US_5250/pseudo_set_class_dist.png" >
+        </div>
+        <div class="image-col2">
+          <img id="image_8" src="visuals\dbpedia_14\top_k\250_LC_7_UC_7_LS_35_US_5250/selected_prob_dist.png">
+        </div>
+        <div class="image-col2">
+          <img id="image_9" src="visuals\dbpedia_14\top_k\250_LC_7_UC_7_LS_35_US_5250/selected_set_class_dist.png">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /images -->
+
+
+  <script src="assets/history_analysis.js"></script>
+
+  <!-- ** JS Plugins Needed for the Project ** -->
+  <!-- jquiry -->
+  <!-- <script src="plugins/jquery/jquery-1.12.4.js"></script> -->
+  <!-- Bootstrap JS -->
+  <!-- <script src="plugins/bootstrap/bootstrap.min.js"></script> -->
+  <!-- match-height JS -->
+  <!-- <script src="plugins/match-height/jquery.matchHeight-min.js"></script> -->
+  <!-- Main Script -->
+  <!-- <script src="assets/script.js"></script> -->
+</body>
+
+</html>
+
+</html>
