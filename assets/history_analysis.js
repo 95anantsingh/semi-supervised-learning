@@ -43,10 +43,10 @@ function refresh_widths(){
     img_8.width = Math.min(img_8.naturalWidth * px_val3,img_8.naturalWidth);
     img_9.width = Math.min(img_9.naturalWidth * px_val3,img_9.naturalWidth);
 
-    console_log("changed")
+    // console_log("changed")
 }
 
-refresh_widths();
+// refresh_widths();
 
 // Data Population
 var dataset = "dbpedia_14";
@@ -136,6 +136,7 @@ function refresh_data(){
 }
 
 function update_images(){
+    // console_log("started")
     img_dir="visuals/"+dataset+"/"+sampling+strategy+"/"+strat_val+"_LC_"+labeled_classes+"_UC_"+unlabeled_classes+"_LS_"+labeled_size+"_US_"+unlabeled_size;
     document.getElementById("image_1").src = img_dir+"/acc_plot.png";
     document.getElementById("image_2").src = img_dir+"/cw_acc_plot.png";
@@ -146,9 +147,11 @@ function update_images(){
     document.getElementById("image_7").src = img_dir+"/pseudo_set_class_dist.png";
     document.getElementById("image_8").src = img_dir+"/selected_prob_dist.png";
     document.getElementById("image_9").src = img_dir+"/selected_set_class_dist.png";
-
-    refresh_widths();
+    
+    setTimeout(refresh_widths, 500);
+    
     // console_log(img_dir);
+    
 }
 
 function console_log(message){
