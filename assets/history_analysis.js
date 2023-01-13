@@ -1,28 +1,45 @@
 
-// Width Adjustment
+var img_dir = '';
+var dataset = "dbpedia_14";
+var strategy = "top_k";
+var strat_val = "250";
+var sampling = "";
+var labeled_classes = "7";
+var labeled_size = "35";
+var unlabeled_classes = "14";
+var unlabeled_size = "10500";
+    
+var padding = 0;
+var total_width3 = 0;
+var total_img_width3 = 0;
+var px_val3 = 0
 
+var img_1 = document.getElementById("image_1")
+var img_2 = document.getElementById("image_2")
+var img_3 = document.getElementById("image_3")
+var img_4 = document.getElementById("image_4")
+var img_5 = document.getElementById("image_5")
+var img_6 = document.getElementById("image_6")
+var img_7 = document.getElementById("image_7")
+var img_8 = document.getElementById("image_8")
+var img_9 = document.getElementById("image_9")
+var img_container = document.getElementById("image_container");
 
-// visuals/yahoo_answers_10/pc_top_k/35_LC_5_UC_5_LS_25_US_5000/selected_set_class_dist.png
-// 
+var dataset_selector = document.getElementById("dataset_selector")
+var strategy_selector = document.getElementById("strategy_selector")
+var strat_val_selector = document.getElementById("strat_val_selector")
+var sampling_selector = document.getElementById("sampling_selector")
+var labeled_selector = document.getElementById("labeled_selector")
+var unlabeled_selector = document.getElementById("unlabeled_selector")
+
 
 function refresh_widths(){
     // var total_width1 = window.innerWidth-(2*padding)-120;
-    var img_container = document.getElementById("image_container");
-    // var img_1 = document.getElementById("image_1");
-    // var img_2 = document.getElementById("image_2");
-    // var img_3 = document.getElementById("image_3");
-    // var img_4 = document.getElementById("image_4");
-    var img_5 = document.getElementById("image_5");
-    var img_6 = document.getElementById("image_6");
-    var img_7 = document.getElementById("image_7");
-    var img_8 = document.getElementById("image_8");
-    var img_9 = document.getElementById("image_9");
-
-
-    var padding = window.innerWidth - img_container.clientWidth;
-    var total_width3 = window.innerWidth-(2*padding)+15;
-    var total_img_width3 = 0;
-    var px_val3 = 0
+    
+    padding = window.innerWidth - img_container.clientWidth;
+    total_width3 = window.innerWidth-(2*padding)+15;
+    total_img_width3 = 0;
+    px_val3 = 0
 
     // var total_img_width1 = img_1.naturalWidth + img_2.naturalWidth;
     // var total_img_width2 = img_3.naturalWidth + img_4.naturalWidth;
@@ -42,28 +59,7 @@ function refresh_widths(){
     img_7.width = Math.min(img_7.naturalWidth * px_val3,img_7.naturalWidth);
     img_8.width = Math.min(img_8.naturalWidth * px_val3,img_8.naturalWidth);
     img_9.width = Math.min(img_9.naturalWidth * px_val3,img_9.naturalWidth);
-
-    // console_log("changed")
 }
-
-// refresh_widths();
-
-// Data Population
-var dataset = "dbpedia_14";
-var strategy = "top_k";
-var strat_val = "250";
-var sampling = "";
-var labeled_classes = "7";
-var labeled_size = "35";
-var unlabeled_classes = "14";
-var unlabeled_size = "10500";
-
-var dataset_selector = document.getElementById("dataset_selector")
-var strategy_selector = document.getElementById("strategy_selector")
-var strat_val_selector = document.getElementById("strat_val_selector")
-var sampling_selector = document.getElementById("sampling_selector")
-var labeled_selector = document.getElementById("labeled_selector")
-var unlabeled_selector = document.getElementById("unlabeled_selector")
 
 function dataset_change() {
     dataset = dataset_selector.options[dataset_selector.selectedIndex].value;
@@ -94,7 +90,7 @@ function dataset_change() {
             <option value="10_20000">Class: 10, Size: 20000</option>';
     }
     strategy_change();
-    refresh_data();
+    // refresh_data();
 }
 
 function strategy_change() {
@@ -136,39 +132,37 @@ function refresh_data(){
 }
 
 function update_images(){
-    // console_log("started")
     img_dir="visuals/"+dataset+"/"+sampling+strategy+"/"+strat_val+"_LC_"+labeled_classes+"_UC_"+unlabeled_classes+"_LS_"+labeled_size+"_US_"+unlabeled_size;
-    document.getElementById("image_1").src = img_dir+"/acc_plot.png";
-    document.getElementById("image_2").src = img_dir+"/cw_acc_plot.png";
-    document.getElementById("image_3").src = img_dir+"/selection_plot.png";
-    document.getElementById("image_4").src = img_dir+"/cw_f1_plot.png";
-    document.getElementById("image_5").src = img_dir+"/predicted_prob_dist.png";
-    document.getElementById("image_6").src = img_dir+"/predicted_set_class_dist.png";
-    document.getElementById("image_7").src = img_dir+"/pseudo_set_class_dist.png";
-    document.getElementById("image_8").src = img_dir+"/selected_prob_dist.png";
-    document.getElementById("image_9").src = img_dir+"/selected_set_class_dist.png";
-    
+    img_1.src = img_dir+"/acc_plot.png";
+    img_2.src = img_dir+"/cw_acc_plot.png";
+    img_3.src = img_dir+"/selection_plot.png";
+    img_4.src = img_dir+"/cw_f1_plot.png";
+    img_5.src = img_dir+"/predicted_set_class_dist.png";
+    img_6.src = img_dir+"/predicted_prob_dist.png";
+    img_7.src = img_dir+"/pseudo_set_class_dist.png";
+    img_8.src = img_dir+"/selected_prob_dist.png";
+    img_9.src = img_dir+"/selected_set_class_dist.png";
+
     setTimeout(refresh_widths, 2000);
-    
-    // console_log(img_dir);
-    
 }
 
 function console_log(message){
     console.log(message)
 }
+
+
 // Zoom Handling
 // var header = document.getElementById("header");
 // var header_text = document.getElementById("header_text");
 // var header_link = document.getElementById("header_link");
-
+//
 // org_header_height=header.clientHeight;
 // org_header_text_height=header_text.clientHeight;
 // org_header_link_height=header_link.clientHeight;
-
+//
 // org_screen_height= window.innerHeight;
 // window.addEventListener("resize", getSizes, false)
-
+//
 // function getSizes(event){
 //     let body = document.body
 //     body.width = window.innerWidth
@@ -178,5 +172,4 @@ function console_log(message){
 //     // header_link.style.height=(org_header_link_height*window.innerHeight/org_screen_height)+"px"
 //     console_log(body.width +"px x "+ body.height + "px"+ header.clientHeight)
 //   }
-  
 // getSizes()
