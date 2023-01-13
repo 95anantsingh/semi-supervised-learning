@@ -13,12 +13,14 @@ var selectors = document.getElementById("selectors");
 function strategy_change(){
     strategy = strategy_selector.options[strategy_selector.selectedIndex].value;
     if (strategy==''){
+        sampling_selector.disabled=true;
         sampling_selector.innerHTML='\
             <option value="" selected>select</option>\
             <option value="">Equal</option>\
             <option value="random_">Random</option>'
     }
     else{
+        sampling_selector.disabled=false;
         sampling_selector.innerHTML='\
             <option value="">Equal</option>\
             <option value="random_">Random</option>'
