@@ -9,6 +9,23 @@ var sampling_selector = document.getElementById("sampling_selector");
 var header = document.getElementById("header_");
 var selectors = document.getElementById("selectors");
 
+
+function strategy_change(){
+    strategy = strategy_selector.options[strategy_selector.selectedIndex].value;
+    if (strategy==''){
+        sampling_selector.innerHTML='\
+            <option value="" selected>select</option>\
+            <option value="">Equal</option>\
+            <option value="random_">Random</option>'
+    }
+    else{
+        sampling_selector.innerHTML='\
+            <option value="">Equal</option>\
+            <option value="random_">Random</option>'
+    }
+    refresh_data();
+}
+
 function refresh_data(){
     dataset = dataset_selector.options[dataset_selector.selectedIndex].value;
     strategy = strategy_selector.options[strategy_selector.selectedIndex].value;

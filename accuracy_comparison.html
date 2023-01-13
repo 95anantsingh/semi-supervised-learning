@@ -55,8 +55,8 @@
         </div>
         <div class="col-sm-4 col-lg-2 align-self-center">
           <h4 class="text-center">Strategy</h4>
-          <select id="strategy_selector" class="form-select" onChange="refresh_data();">
-            <!-- <option selected>Open this select menu</option> -->
+          <select id="strategy_selector" class="form-select" onChange="strategy_change();">
+            <option value="" selected>select</option>
             <option value="top_k">Top K</option>
             <option value="pc_top_k">Per Class Top K</option>
           </select>
@@ -64,7 +64,7 @@
         <div class="col-sm-4 col-lg-2 align-self-center">
           <h4 class="text-center">Sampling</h4>
           <select id="sampling_selector" class="form-select" onChange="refresh_data();">
-            <!-- <option selected>Open this select menu</option> -->
+            <option value="" selected>select</option>
             <option value="">Equal</option>
             <option value="random_">Random</option>
           </select>
@@ -78,7 +78,7 @@
   <!-- plot -->
   <div>
     <iframe scrolling="no" style="border:none;" seamless="seamless" id="plotly_html" class='plotly'
-      src="acc/dbpedia_14/top_k/acc_comparison.html">
+      src="acc/dbpedia_14/acc_comparison.html">
     </iframe>
   </div>
   <!-- /plot -->
