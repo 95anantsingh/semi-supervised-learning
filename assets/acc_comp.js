@@ -15,7 +15,7 @@ function strategy_change(){
     if (strategy==''){
         sampling_selector.disabled=true;
         sampling_selector.innerHTML='\
-            <option value="" selected>select</option>\
+            <option value="" selected>All</option>\
             <option value="">Equal</option>\
             <option value="random_">Random</option>'
     }
