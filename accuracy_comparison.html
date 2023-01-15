@@ -76,15 +76,18 @@
 
 
   <!-- plot -->
-  <div>
-    <iframe scrolling="no" style="border:none;" seamless="seamless" id="plotly_html" class='plotly'
+  <div id='plotly_div'>
+    <iframe title="plotly" scrolling="no" style="border:none;" seamless="seamless" id="plotly_iframe" class='plotly'
       src="visuals/dbpedia_14/acc_comparison.html">
     </iframe>
   </div>
+  <!-- onload="style_iframe();" -->
   <!-- /plot -->
 
+  <div class="maximize_button_container">
+    <button id="maximize_button" onclick="maximize()"><i class="ti-fullscreen icon_"></i></button>
+  </div>
 
-  <script src="assets/acc_comp.js"></script>
 
   <!-- ** JS Plugins Needed for the Project ** -->
   <!-- jquiry -->
@@ -95,6 +98,9 @@
   <!-- <script src="plugins/match-height/jquery.matchHeight-min.js"></script> -->
   <!-- Main Script -->
   <!-- <script src="assets/script.js"></script> -->
+
+  <script src="assets/acc_comp.js"></script>
+  
 </body>
 
 </html>
