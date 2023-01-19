@@ -1,1 +1,1 @@
-# A Study on Semi Supervised Learning Algorithms
+## A Study on Semi Supervised Learning Algorithms
