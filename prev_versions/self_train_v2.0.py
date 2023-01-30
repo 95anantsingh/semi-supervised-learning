@@ -617,7 +617,7 @@ if __name__ == "__main__":
     # args.labeled_size = 70
     # args.unlabeled_size = 2100
     # args.eval_size = 500
-    # args.dataset = 'yahoo_answers_10'
+    # args.dataset = 'yahoo_answers'
     # args.equal_split = False
 
     # args.strategy = 'pc_top_k'
@@ -627,7 +627,7 @@ if __name__ == "__main__":
     # args.labeled_per_class = 10
     # args.unlabeled_per_class = 200
     # args.eval_size = 500
-    # args.dataset = 'yahoo_answers_10'
+    # args.dataset = 'yahoo_answers'
     # args.equal_split = False
     
     # args.history_dir = './test'

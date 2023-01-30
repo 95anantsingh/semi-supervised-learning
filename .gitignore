@@ -12,6 +12,7 @@ visuals/*
 
 # ignore files
 *.sh
+*.sbatch
 
 # do not ignore 
 !*.ipynb
