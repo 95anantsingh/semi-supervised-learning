@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <title>Accuracy Comparison</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- ** CSS Plugins Needed for the Project ** -->
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="assets/plugins/bootstrap/bootstrap.min.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="assets/plugins/themify-icons/themify-icons.css">
+  <!--Favicon-->
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+  <!-- Main Stylesheet -->
+  <link href="assets/css/style.css" rel="stylesheet" media="screen" />
+  <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+</head>
+
+<body>
+  <!-- header -->
+  <header class="shadow-bottom bg-white" id="header_">
+    <nav class="navbar navbar-expand-md navbar-light">
+      <div id="header" class="container">
+        <h3 id="header_text" class="text-primary header-text" href="index.html">Accuracy Comparison</h3>
+        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navigation">
+          <a id="header_link" class="nav-link text-dark header-nav ml-auto" href="index.html">Home</a>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+  <!-- /header -->
+  
+  <!-- selectors -->
+  <section class="section pb-0 pt-3" id="selectors">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 col-lg-2 align-self-start">
+          <h4 class="text-center">Dataset</h4>
+          <select id="dataset_selector" class="form-select" onChange="refresh_data();">
+            <!-- dataset_selection(this); -->
+            <!-- <option selected>Open this select menu</option> -->
+            <!-- <option value="dbpedia_14">DBpedia</option> -->
+            <option value="yahoo_answers">Yahoo Answers</option>
+          </select>
+        </div>
+        <div class="col-sm-4 col-lg-2 align-self-center">
+          <h4 class="text-center">Strategy</h4>
+          <select id="strategy_selector" class="form-select" onChange="strategy_change();">
+            <!-- <option value="" selected>All</option> -->
+            <!-- <option value="top_k">Top K</option> -->
+            <option value="pc_top_k">Per Class Top K (100)</option>
+          </select>
+        </div>
+        <div class="col-sm-4 col-lg-2 align-self-center">
+          <h4 class="text-center">Sampling</h4>
+          <select id="sampling_selector" class="form-select" onChange="refresh_data();" disabled>
+            <!-- <option value="" selected>All</option> -->
+            <option value="">Equal</option>
+            <!-- <option value="random_">Random</option> -->
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /selectors -->
+
+
+  <!-- plot -->
+  <div id='plotly_div'>
+    <iframe title="plotly" scrolling="no" style="border:none;" seamless="seamless" id="plotly_iframe" class='plotly'
+      src="visuals/v3.1/yahoo_answers/pc_top_k/acc_comparison.html">
+    </iframe>
+  </div>
+  <!-- onload="style_iframe();" -->
+  <!-- /plot -->
+
+  <div class="maximize_button_container">
+    <button id="maximize_button" onclick="maximize()"><i class="ti-fullscreen icon_"></i></button>
+  </div>
+
+
+  <!-- ** JS Plugins Needed for the Project ** -->
+  <!-- jquiry -->
+  <!-- <script src="assets/plugins/jquery/jquery-1.12.4.js"></script> -->
+  <!-- Bootstrap JS -->
+  <!-- <script src="assets/plugins/bootstrap/bootstrap.min.js"></script> -->
+  <!-- match-height JS -->
+  <!-- <script src="assets/plugins/match-height/jquery.matchHeight-min.js"></script> -->
+  <!-- Main Script -->
+  <!-- <script src="assets/json/script.js"></script> -->
+
+  <script src="assets/json/acc_comp_v3.1.js"></script>
+  
+</body>
+
+</html>
+</html>

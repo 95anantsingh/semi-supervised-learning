@@ -27,7 +27,7 @@ class SelfTrainConfig(object):
 
         num_epochs : int = 4,
         num_iters : int = 20,
-        max_batch_size : int = 256,
+        max_batch_size : int = 112,
         min_batch_size : int = 8,
         steps_per_epoch : int = 250,
         min_total_steps : int = 60,

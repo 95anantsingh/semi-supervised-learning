@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <title>History Analysis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- ** CSS Plugins Needed for the Project ** -->
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="assets/plugins/bootstrap/bootstrap.min.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="assets/plugins/themify-icons/themify-icons.css">
+  <!--Favicon-->
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+  <!-- Main Stylesheet -->
+  <link href="assets/css/style.css" rel="stylesheet" media="screen" />
+</head>
+
+<body onload="refresh_data();">
+
+  <!-- header -->
+  <header class="shadow-bottom bg-white">
+    <nav class="navbar navbar-expand-md navbar-light">
+      <div  id="header" class="container">
+        <h3 id="header_text" class="text-primary header-text" href="index.html">History Analysis</h3>
+        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navigation">
+          <a id="header_link" class="nav-link text-dark header-nav ml-auto" href="index.html">Home</a>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+  <!-- /header -->
+
+  <!-- selectors -->
+  <section class="section pb-0 pt-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 col-lg-2 align-self-start">
+          <h4 class="text-center">Dataset</h4>
+          <select id="dataset_selector" class="form-select" onChange="dataset_change();">
+            <!-- dataset_selection(this); -->
+            <!-- <option selected>Open this select menu</option> -->
+            <!-- <option value="dbpedia_14">DBpedia</option> -->
+            <option value="yahoo_answers">Yahoo Answers</option>
+          </select>
+        </div>
+        <div class="col-sm-4 col-lg-2 align-self-center">
+          <h4 class="text-center">Strategy</h4>
+          <select id="strategy_selector" class="form-select" onChange="strategy_change();">
+            <!-- <option selected>Open this select menu</option> -->
+            <!-- <option value="top_k">Top K</option> -->
+            <option value="pc_top_k_equal_100">Per Class Top K (100)</option>
+          </select>
+        </div>
+        <div class="col-sm-4 col-lg-2 align-self-center">
+          <h4 class="text-center">Run</h4>
+          <select id="run_selector" class="form-select" onChange="refresh_data();">
+            <!-- <option selected>Open this select menu</option> -->
+            <option value="Run1">1</option>
+            <option value="Run2">2</option>
+            <option value="Run3">3</option>
+            <option value="Run4">4</option>
+            <option value="Run5">5</option>
+            <!-- <option value="random_">Random</option> -->
+          </select>
+        </div>
+        <div class="col-sm-4 col-lg-2 align-self-center">
+          <h4 class="text-center">Labeled Set Size</h4>
+          <select id="labeled_selector" class="form-select" onChange="refresh_data();">
+            <!-- <option selected>Open this select menu</option> -->
+            <option value="100">100</option>
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+            <option value="5000">5000</option>
+            <!-- <option value="7_1050">Class: 7, Size: 1050</option> -->
+          </select>
+        </div>
+        <div class="col-sm-4 col-lg-2 align-self-center">
+          <h4 class="text-center">Unlabeled Set Size</h4>
+          <select id="unlabeled_size_selector" class="form-select" onChange="refresh_data();">
+            <!-- <option selected>Select</option> -->
+            <option value="50000">50000</option>
+            <!-- <option value="500">500</option> -->
+          </select>
+        </div>
+        <div class="col-sm-4 col-lg-2 align-self-center">
+          <h4 class="text-center">Unlabeled Set</h4>
+          <select id="unlabeled_ratio_selector" class="form-select" onChange="refresh_data();">
+            <!-- <option selected>Open this select menu</option> -->
+            <option value="100"  >In: 100%, Out: 0%</option>
+            <!-- <option value="95"  >In: 95%, Out: 5%</option> -->
+            <option value="75"  >In: 75%, Out: 25%</option>
+            <option selected value="50"  >In: 50%, Out: 50%</option>
+            <option value="25"  >In: 25%, Out: 75%</option>
+            <option value="5"  >In: 5%, Out: 95%</option>
+            <!-- <option value="0"  >In: 0%, Out: 100%</option> -->
+          </select>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  <!-- /selectors -->
+
+  <!-- images -->
+  <section class="section pb-0 pt-2">
+    <div  id="image_container" class="container">
+      <div class="row bg-white align-items-center">
+        <div class="col-sm-12 col-lg-6 image-col">
+          <img id="image_1" class="img-fluid" src="visuals/v3.1/yahoo_answers/pc_top_k/Run1/100_equal_100_50000_50/acc_plot.png" >
+        </div>
+        <div class="col-sm-12 col-lg-6 image-col">
+          <img id="image_2" class="img-fluid" src="visuals/v3.1/yahoo_answers/pc_top_k/Run1/100_equal_100_50000_50/cw_acc_plot.png">
+        </div>
+      </div>
+      <div class="row bg-white align-items-center">
+        <div class="col-sm-12 col-lg-6 image-col">
+          <img id="image_3" class="img-fluid" src="visuals/v3.1/yahoo_answers/pc_top_k/Run1/100_equal_100_50000_50/selection_plot.png" >
+        </div>
+        <div class="col-sm-12 col-lg-6 image-col">
+          <img id="image_4" class="img-fluid" src="visuals/v3.1/yahoo_answers/pc_top_k/Run1/100_equal_100_50000_50/cw_f1_plot.png">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section pb-5 pt-0">
+    <div  id="image_container" class="container">
+      <div class="row bg-white">
+        <div class="image-col2">
+          <img id="image_5" src="visuals/v3.1/yahoo_answers/pc_top_k/Run1/100_equal_100_50000_50/predicted_set_class_dist.png" >
+        </div>
+        <div class="image-col2">
+          <img id="image_6" src="visuals/v3.1/yahoo_answers/pc_top_k/Run1/100_equal_100_50000_50/predicted_prob_dist.png">
+        </div>
+        <div class="image-col2">
+          <img id="image_7" src="visuals/v3.1/yahoo_answers/pc_top_k/Run1/100_equal_100_50000_50/pseudo_set_class_dist.png" >
+        </div>
+        <div class="image-col2">
+          <img id="image_8" src="visuals/v3.1/yahoo_answers/pc_top_k/Run1/100_equal_100_50000_50/selected_prob_dist.png">
+        </div>
+        <div class="image-col2">
+          <img id="image_9" src="visuals/v3.1/yahoo_answers/pc_top_k/Run1/100_equal_100_50000_50/selected_set_class_dist.png">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /images -->
+
+
+  <!-- ** JS Plugins Needed for the Project ** -->
+  <!-- jquiry -->
+  <!-- <script src="assets/plugins/jquery/jquery-1.12.4.js"></script> -->
+  <!-- Bootstrap JS -->
+  <!-- <script src="assets/plugins/bootstrap/bootstrap.min.js"></script> -->
+  <!-- match-height JS -->
+  <!-- <script src="assets/plugins/match-height/jquery.matchHeight-min.js"></script> -->
+  <!-- Main Script -->
+  <!-- <script src="assets/json/script.js"></script> -->
+
+  <script src="assets/json/history_analysis_v3.1.js"></script>
+</body>
+
+</html>
